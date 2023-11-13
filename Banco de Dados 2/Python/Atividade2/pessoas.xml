@@ -1,0 +1,17 @@
+<objetos>
+    <Pessoa>
+        <nome>Andr&#233;</nome>
+        <dataNasc>04/05/2000</dataNasc>
+        <cpf>000.000.000-00</cpf>
+    </Pessoa>
+    <Pessoa>
+        <nome>Mario</nome>
+        <dataNasc>05/05/2000</dataNasc>
+        <cpf>000.000.000-01</cpf>
+    </Pessoa>
+    <Pessoa>
+        <nome>Luigi</nome>
+        <dataNasc>06/05/2000</dataNasc>
+        <cpf>000.000.000-02</cpf>
+    </Pessoa>
+</objetos>

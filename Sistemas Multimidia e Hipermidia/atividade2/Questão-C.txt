@@ -1,0 +1,1 @@
+C) O WAV é basicamente o audio puro sem qualquer compressão para diminuição de peso, sendo assim o mais fiel em qualidade. Já o MP3 faz uma compressão mais voltada para a diminuição de tamanho eleminando as faixas inaudíveis e perdendo também um pouco de qualidade. 

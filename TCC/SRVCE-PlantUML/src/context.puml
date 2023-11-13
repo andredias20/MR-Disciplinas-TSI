@@ -1,0 +1,12 @@
+@startuml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Context.puml
+
+Person(ace, "Agente de Controle de Endemias", "O agente que irá realizar as vistorias a procura de iregularidades nas residencias.")
+
+System(srvce, "Aplicacao SRVCE", "Sistema de Registro de Visitas do Controle de Endemias")
+System_Ext(sus, "Data SUS", "Sistema que armazena dados de saude de todos as cidades e estados do país")
+
+Rel(ace, srvce, "Usa")
+Rel(srvce, sus, "Envia reports semanais")
+
+@enduml

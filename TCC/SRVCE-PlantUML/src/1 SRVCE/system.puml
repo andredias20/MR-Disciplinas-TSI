@@ -1,0 +1,24 @@
+@startuml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(ace, "Agente de Controle de Endemias", "O agente que irá realizar as vistorias a procura de iregularidades nas residencias.")
+
+System_Boundary(srvce, "Aplicacao SRVCE"){
+    Container(aa, "Aplicativo Android", "Kotlin", "Fornece as funcionalidades de Registro de atendimento e disponibilização das rotas.")
+
+    Container(api, "API", "Java e SpringBoot", "Fornece e suporta as funcionalidades da aplicação móvel, sendo a principal interface para a entrada e saída de dados.")
+    
+    Container(db, "SGDB", "MongoDB", "Armazena os dados recebidos, e fornece os dados existentes por meio de consulta")
+
+    Rel(aa, api, "Envia e obtem dados", "JSON")
+    Rel(api, db, "Grava e Consulta", "JDBC")
+
+}
+System_Ext(sus, "Data SUS", "Recebe e armazena os dados.")
+
+Rel(ace, aa, "Usa")
+Rel(api, sus, "Envia reports semanais", "JSON")
+
+@enduml

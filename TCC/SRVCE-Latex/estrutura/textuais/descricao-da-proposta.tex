@@ -1,0 +1,138 @@
+\begin{abstract}
+Esta proposta de Trabalho de Conclusão de Curso (TCC) consiste no desenvolvimento de uma aplicação para suporte às atividades dos agentes municipais de controle de endemias. Basicamente, o registro de visitas domiciliares buscando tornar mais eficiente a distribuição dos trajetos, a coleta de dados e sua utilização em processos futuros. O objetivo é criar uma aplicação mobile de suporte ao agente no registro das visitas domiciliares de forma padronizada. Tal aplicação deverá funcionar nos modos online e offline. No modo online, o agente recebe o roteiro do dia e posteriormente descarrega os registros das visitas realizadas. Durante os trabalhos diários, a aplicação deverá funcionar no modo offline armazenando os dados no próprio dispositivo. Ao término do dia, o agente conecta ao servidor via internet e processa a entrega dos dados registrados. Vislumbra-se ainda o desenvolvimento futuro de uma aplicação WEB para fins de administração e apresentação de consultas. Assim, a presente proposta se insere na temática de Desenvolvimento Tecnológico e envolve o desenvolvimento de uma aplicação cliente/servidor com comunicação via interface de programação de aplicações (APIs) e desenvolvimento de aplicativos para dispositivos móveis.
+\end{abstract}
+
+
+\chapter{INTRODUÇÃO}
+\label{chap:descricao}
+
+% (máximo de 1 página)
+Com a ascensão da internet e da tecnologia, surgiram sistemas eletrônicos e dispositivos móveis capazes de armazenar e compartilhar dados de forma eficiente e ágil. Atualmente, os chamados smartphones são extremamente populares no Brasil, chegando a alcançar a marca de 1.2 smartphones por habitante (contabilizando somente aparelhos celulares), segundo o \cite{FGVcia}. Apesar da facilidade ocasionada pela utilização massiva dos smartphones pela população, uma parte dos processos do setor público ainda ocorrem de forma manual ou semi-automatizada, sendo os registros primordiais primeiro em papel.
+No estado do Paraná, a maioria dos municípios conta com um departamento de monitoramento e controle de endemias. Em especial no que tange à proliferação do mosquito AEDS AEGYPTI transmissor de várias doenças tais como Dengue, Chikungunya e Malária. Nesse processo, agentes municipais visitam e vistoriam as instalações domiciliares, comerciais e industriais em busca de possíveis focos  e criadouros do mosquito. Atualmente, os registros das visitas e seus achados são feitos manualmente em papel. Posteriormente, esses registros são também manualmente inseridos em planilhas eletrônicas para fins de compilação estatística, bem como a geração de gráficos. Esse caráter manual torna o processo moroso, sujeito à falhas e com resultados muitas vezes aquém das expectativas.
+Atender às necessidades reais do setor de monitoramento e controle de endemias pressupõe o desenvolvimento de um sistema complexo com diversas funcionalidades. Embora factível, tal é obviamente impossível de ser concretizado no escopo de um TCC. Assim,  este trabalho propõe o desenvolvimento de uma versão inicial de aplicação capaz de suportar o registro das visitas com armazenamento local e posterior descarga para a aplicação servidora via internet. A aplicação será desenvolvida utilizando tecnologias de aplicativos móveis, e terá como objetivo tornar mais eficiente a coleta e armazenamento dos dados para utilização em processos futuros. Na sequência, a seção 2 apresenta o objetivo geral e os objetivos específicos do trabalho. Na seção 3, será apresentado o cronograma pelo qual o desenvolvimento da proposta será guiado. 
+
+%-----------------------------------------------------------------------------------------
+\newpage
+
+\chapter{OBJETIVOS}
+\label{chap:objetivos}
+
+\section{Objetivo Geral}
+\label{subsec:objgeral}
+Desenvolver uma solução web/mobile para o registro, compilação e análise dos dados coletados nas visitas domiciliares realizadas pelos agentes de controle de endemias.
+
+
+\section{Objetivos Específicos}
+\label{subsec:objespc}
+Modelar a comunicação entre a aplicação cliente e o servidor
+ \begin{list}{--}{ }
+ 	\item Levantamento dos requisitos: i) conhecer a  rotina de trabalho dos agentes de endemias, o processo de visita e o registro dos achados e; ii) Conhecer as necessidades do processo de compilação e análise dos dados coletados.
+ 	\item Definir arquitetura e realizar a modelagem da aplicação com a escolha das tecnologias, linguagens e ferramentas  de desenvolvimento.
+ 	\item Modelar as telas e o storyboard da aplicação mobile concernente ao registro da visita e seus achados;
+ 	\item Modelar a base de dados e o armazenamento local;
+ 	\item Modelar a comunicação entre a aplicação cliente e o servidor.
+ 	\item Desenvolver uma versão da aplicação cliente para smartphones Android.
+ 	\item Desenvolver uma versão da aplicação servidora e da API de comunicação com a aplicação cliente.
+ 	\item Apresentação do TCC.
+ \end{list}
+
+%-----------------------------------------------------------------------------------------
+
+\chapter{ESTRUTURA DA APLICAÇÃO}
+A construção de software é um processo complexo que envolve várias etapas, desde a definição dos requisitos até a entrega do produto final. Dentro deste contexto, existem várias decisões a serem tomadas para que o software possa ser desenvolvido, dentro dos requisitos definidos ao início do projeto. Neste tópico, irei descrever como será estruturada a aplicação, sua arquitetura e responsabilidades.
+
+\section{ARQUITETURA}
+
+Devido a natureza da aplicação, será adotada uma arquitetura Cliente/Servidor como arquitetura geral. Esta foi escolhida por ser a mais adequada para atender às necessidades do sistema. 
+A arquitetura Cliente/Servidor permite que os componentes do sistema sejam projetados e implementados de forma independente, o que facilita a manutenção e a escalabilidade do sistema.
+No caso específico dessa aplicação, a arquitetura Cliente/Servidor permitirá que os usuários utilizem aplicações móveis e web para registrar e visualizar dados. Os dados registrados nas aplicações móveis serão transmitidos para um servidor, onde serão armazenados e processados. Os dados armazenados no servidor poderão ser visualizados por meio de uma aplicação web.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[height=0.5\textheight]{dados/figuras/context_map.png}
+	\caption{Diagrama de Contexto. \textbf{Fonte:} Elaborado pelo Autor 2023}
+\end{figure}
+
+Em conjunto com a arquitetura Cliente/Servidor, será utilizada também a Arquitetura em Camadas. Permitindo a divisão clara das responsabilidades de cada componente dos sistemas individuais, permitindo uma melhor organização e manutenibilidade dos sistemas.
+
+\section{TECNOLOGIAS}
+Durante a escolha das tecnologias, diversos pontos foram considerados. Dentre os pontos estão a familiaridade com a linguagem, aplicações a serem desenvolvidas, o desempenho das linguagens, a comunidade de desenvolvedores para suporte ao desenvolvimento e pela robustez que os ecossistemas oferecem. 
+Para desenvolvimento da aplicação servidor, foi escolhida a linguagem Java utilizando Spring Boot para realizar a construção da interface de comunicação. O framework Spring e seus derivados como Spring Boot, fornecem uma base para desenvolvimento e configuração de APIs, permitindo diversas facilidades durante o processo.
+Para desenvolvimento da aplicação cliente que será utilizada em dispositivos móveis Android, foi escolhida a linguagem Kotlin, atualmente a linguagem oficial para desenvolvimento no ecossistema. Apesar de ser uma linguagem relativamente nova, possui uma vasta comunidade, além de possuir grande semelhança e interoperabilidade com a linguagem com Java, sua antecessora.
+Para o armazenamento dos dados coletados durante a atividade em campo será utilizado o MongoDB, dada a natureza das atividades a serem registradas, visto que cada um dos atendimentos se encaixa como um documento.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[height=0.5\textheight]{dados/figuras/bounded_context.png}
+	\caption{Diagrama de Container \textbf{Fonte:} Elaborado pelo Autor 2023}
+\end{figure}
+
+%-----------------------------------------------------------------------------------------
+
+%\section{REFERÊNCIAL TEÓRICO}
+%\label{sec:estadoarte}
+
+%-----------------------------------------------------------------------------------------
+
+%\subsection{DIFERENCIAL TECNOLÓGICO}
+%\label{sec:diferencial}
+
+%-----------------------------------------------------------------------------------------
+
+%\section{MATERIAIS E MÉTODOS} % Escolher o nome mais adequado ao trabalho
+%\label{sec:metodologia}
+
+%-----------------------------------------------------------------------------------------
+
+%\section{RESULTADOS ESPERADOS}
+%\label{sec:resultados}
+
+%-----------------------------------------------------------------------------------------
+
+\section{CRONOGRAMA}
+\label{sec:planejamento}
+% Planejamento do Trabalho----------------------------------------------------------------
+% Esta seção não precisa ser editada, apenas edite o quadro 1 armazenada no diretório ".\dados\quadros"
+
+Neste capítulo está disposto o cronograma de atividades a serem realizadas no período de desenvolvimento da proposta e aplicação da proposta. Dessa forma, cada um dos objetivos específicos citados na seção 2.3 estão alocados a um ou mais meses, dependendo da complexidade da etapa e as dificuldades envolvidas no processo. Entre eles estão as reuniões para conhecimento da rotina e das necessidades que ocorrem no processo, definição de uma arquitetura adequada, apresentação da proposta, modelagem de telas e storyboard da aplicação mobile, modelagem do banco de dados e armazenamento local e a modelagem da comunicação entre aplicações cliente e servidor.
+
+Segue a disposição das atividades:
+
+\begin{quadro}[!htb]
+    %\centering
+    \caption{Cronograma de Atividades.\label{qua:quadro1}}
+    \begin{tabular}{|p{4.5cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|p{0.7cm}|}
+        \hline
+        \textbf{Atividades} & \textbf{Set} & \textbf{Out} & \textbf{Nov} & \textbf{Dez} & \textbf{Fev} & \textbf{Mar} & \textbf{Abr} & \textbf{Mai} & \textbf{Jun} & \textbf{Jul}\\
+        \hline
+        \small{1. Conhecimento da rotina de trabalho} & X &   &   &   &   &   &   &   &   &  \\
+        \hline
+        \small{2. Conhecer necessidades do processo.} & X &   &   &   &   &   &   &   &   &  \\
+        \hline
+	\small{3. Definir arquitetura e realizar modelagem da aplicação com escolha das tecnologias.} &   &   & X & X &   &   &   &   &   &  \\
+        \hline
+	\small{4. Defesa do projeto de TCC} &   &   &   &   & X &   &   &   &   &  \\
+        \hline
+	\small{5. Modelar as telas e o storyboard da aplicação mobile} &   &   &   &   &   & X & X  & X &   &  \\
+        \hline
+	\small{6. Modelar a base de dados e o armazenamento local} &   &   &   &   &   &   &   & X & X &  \\
+        \hline
+	\small{7. Modelar a comunicação entre a aplicação cliente e o servidor.} &   &   &   &   &   &   &   &   & X &  \\
+        \hline
+    	\small{8. Desenvolver versão Android.} &   &   &   &   &   &   &   &   & X &  \\
+    \hline
+    	\small{9. Desenvolver API.} &   &   &   &   &   &   &   &   & X &  \\
+    \hline
+    	\small{10. Redigir o TCC} &   &   &   &   &   &   &   &   & X &  \\
+    \hline
+    	\small{11. Apresentação de TCC} &   &   &   &   &   &   &   &   & X &  \\
+    \hline
+    \end{tabular}
+\end{quadro}
+
+%-----------------------------------------------------------------------------------------
+
+%\section{CONCLUSÃO/CONSIDERAÇÕES FINAIS} % Escolher o nome mais adequado ao trabalho
+%\label{sec:conclusao} 
+
+%-----------------------------------------------------------------------------------------

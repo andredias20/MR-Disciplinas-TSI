@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="72f27655-d183-4f38-b1c4-64400c733902" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/../atividade3/Aula14/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../atividade3/Aula14/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../atividade3/Aula14/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../atividade3/Aula14/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../atividade3/Aula14/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../atividade3/JPA-Implementation/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../atividade4/user_cad/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../atividade4/user_cad/src/main/java/com/github/andredias20/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../atividade4/user_cad/src/main/java/com/github/andredias20/resources/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../atividade4/user_cad/src/test/java/com/github/andredias20/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../atividade4/user_cad/target/classes/com/github/andredias20/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../atividade4/user_cad/target/classes/com/github/andredias20/resources/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../atividade4/user_cad/target/test-classes/com/github/andredias20/AppTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Sistemas Multimidia e Hipermidia/atividade3/huffman.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Sistemas Multimidia e Hipermidia/atividadeSala1/ChatGPT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Sistemas Multimidia e Hipermidia/atividadeSala1/LZWConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Sistemas Multimidia e Hipermidia/atividadeSala1/main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2OnlPjz6l3plu4X14ThqlDQYAns" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "onboarding.tips.debug.path": "/home/andre/Documents/Disciplinas-TSI/Banco de Dados 2/Java/bd2-jpa/src/main/java/com/github/andredias20/Main.java"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="72f27655-d183-4f38-b1c4-64400c733902" name="Changes" comment="" />
+      <created>1682204205221</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682204205221</updated>
+    </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1682204250508</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682204250508</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
+</project>
