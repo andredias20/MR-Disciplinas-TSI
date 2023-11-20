@@ -1,7 +1,7 @@
-package observer.listenerOldStyle;
+package com.github.andredias20.observer.listenerOldStyle;
 
-import observer.motor.Motor;
-import observer.motor.MotorState;
+import com.github.andredias20.observer.motor.Motor;
+import com.github.andredias20.observer.motor.MotorState;
 
 public class MotorEvent
 {

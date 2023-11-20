@@ -1,4 +1,4 @@
-package observer.listenerOldStyle;
+package com.github.andredias20.observer.listenerOldStyle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,27 +6,19 @@ import java.util.List;
 public class MotorListenerManager
 {
    private List<MotorListener> listeners = new ArrayList<>();
-
-   //----------------------------------------------------------
    public void addMotorListener(MotorListener listener)
    {
       listeners.add(listener);
    }
-
-   //----------------------------------------------------------
    public void removeMotorListener(MotorListener listener)
    {
       listeners.remove(listener);
    }
-
-   //----------------------------------------------------------
    public void fireBeforeStart(MotorEvent me)
    {
       for(MotorListener listener : this.listeners)
          listener.beforeStart(me);
    }
-   
-   //----------------------------------------------------------
    public void fireAfterStart(MotorEvent me)
    {
       for(MotorListener listener : this.listeners)

@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>App.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+App.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">github</span><span class="s2">.</span><span class="s1">andredias20</span><span class="s2">.</span><span class="s1">observer</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">github</span><span class="s2">.</span><span class="s1">andredias20</span><span class="s2">.</span><span class="s1">observer</span><span class="s2">.</span><span class="s1">fusca</span><span class="s2">.</span><span class="s1">motors</span><span class="s2">.</span><span class="s1">Motor1500</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">github</span><span class="s2">.</span><span class="s1">andredias20</span><span class="s2">.</span><span class="s1">observer</span><span class="s2">.</span><span class="s1">listenerOldStyle</span><span class="s2">.</span><span class="s1">MotorEvent</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">github</span><span class="s2">.</span><span class="s1">andredias20</span><span class="s2">.</span><span class="s1">observer</span><span class="s2">.</span><span class="s1">listenerOldStyle</span><span class="s2">.</span><span class="s1">MotorListener</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">github</span><span class="s2">.</span><span class="s1">andredias20</span><span class="s2">.</span><span class="s1">observer</span><span class="s2">.</span><span class="s1">listenerOldStyle</span><span class="s2">.</span><span class="s1">MotorListenerAdapter</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">github</span><span class="s2">.</span><span class="s1">andredias20</span><span class="s2">.</span><span class="s1">observer</span><span class="s2">.</span><span class="s1">listenerOldStyle</span><span class="s2">.</span><span class="s1">ObservableMotor</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">github</span><span class="s2">.</span><span class="s1">andredias20</span><span class="s2">.</span><span class="s1">observer</span><span class="s2">.</span><span class="s1">motor</span><span class="s2">.</span><span class="s1">Motor</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">github</span><span class="s2">.</span><span class="s1">andredias20</span><span class="s2">.</span><span class="s1">observer</span><span class="s2">.</span><span class="s1">motor</span><span class="s2">.</span><span class="s1">MotorState</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">App </span><span class="s2">{</span>
+    <span class="s0">static </span><span class="s1">MotorListener motorListener </span><span class="s2">= </span><span class="s0">new </span><span class="s1">MotorListener</span><span class="s2">() {</span>
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">beforeStart</span><span class="s2">(</span><span class="s1">MotorEvent me</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;beforeStart &quot; </span><span class="s2">+ </span><span class="s1">MotorState</span><span class="s2">.</span><span class="s1">stringfy</span><span class="s2">(</span><span class="s1">me</span><span class="s2">.</span><span class="s1">state</span><span class="s2">));</span>
+        <span class="s2">}</span>
+
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">afterStart</span><span class="s2">(</span><span class="s1">MotorEvent me</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;afterStart &quot; </span><span class="s2">+ </span><span class="s1">MotorState</span><span class="s2">.</span><span class="s1">stringfy</span><span class="s2">(</span><span class="s1">me</span><span class="s2">.</span><span class="s1">state</span><span class="s2">));</span>
+        <span class="s2">}</span>
+
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">beforeStop</span><span class="s2">(</span><span class="s1">MotorEvent me</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;beforeStop &quot; </span><span class="s2">+ </span><span class="s1">MotorState</span><span class="s2">.</span><span class="s1">stringfy</span><span class="s2">(</span><span class="s1">me</span><span class="s2">.</span><span class="s1">state</span><span class="s2">));</span>
+        <span class="s2">}</span>
+
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">afterStop</span><span class="s2">(</span><span class="s1">MotorEvent me</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;afterStart &quot; </span><span class="s2">+ </span><span class="s1">MotorState</span><span class="s2">.</span><span class="s1">stringfy</span><span class="s2">(</span><span class="s1">me</span><span class="s2">.</span><span class="s1">state</span><span class="s2">));</span>
+        <span class="s2">}</span>
+
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">beforeSlowDown</span><span class="s2">(</span><span class="s1">MotorEvent me</span><span class="s2">) {</span><span class="s4">/*Nothing*/</span><span class="s2">}</span>
+
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">afterSlowDown</span><span class="s2">(</span><span class="s1">MotorEvent me</span><span class="s2">) {</span><span class="s4">/*Nothing*/</span><span class="s2">}</span>
+
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">beforeSpeedUp</span><span class="s2">(</span><span class="s1">MotorEvent me</span><span class="s2">) {</span><span class="s4">/*Nothing*/</span><span class="s2">}</span>
+
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">afterSpeedUp</span><span class="s2">(</span><span class="s1">MotorEvent me</span><span class="s2">) {</span><span class="s4">/*Nothing*/</span><span class="s2">}</span>
+    <span class="s2">};</span>
+    <span class="s0">static </span><span class="s1">MotorListener speedMotorListener </span><span class="s2">= </span><span class="s0">new </span><span class="s1">MotorListenerAdapter</span><span class="s2">(){</span>
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">beforeSpeedUp</span><span class="s2">(</span><span class="s1">MotorEvent me</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;beforeSpeedUp &quot;</span><span class="s2">+ </span><span class="s1">MotorState</span><span class="s2">.</span><span class="s1">stringfy</span><span class="s2">(</span><span class="s1">me</span><span class="s2">.</span><span class="s1">state</span><span class="s2">));</span>
+        <span class="s2">}</span>
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">afterSpeedUp</span><span class="s2">(</span><span class="s1">MotorEvent me</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;afterSpeedUp &quot;</span><span class="s2">+ </span><span class="s1">MotorState</span><span class="s2">.</span><span class="s1">stringfy</span><span class="s2">(</span><span class="s1">me</span><span class="s2">.</span><span class="s1">state</span><span class="s2">));</span>
+        <span class="s2">}</span>
+    <span class="s2">};</span>
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">Motor motor1500 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Motor1500</span><span class="s2">();</span>
+        <span class="s1">ObservableMotor motor </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ObservableMotor</span><span class="s2">(</span><span class="s1">motor1500</span><span class="s2">);</span>
+
+        <span class="s1">motor</span><span class="s2">.</span><span class="s1">addMotorListener</span><span class="s2">(</span><span class="s1">motorListener</span><span class="s2">);</span>
+        <span class="s1">motor</span><span class="s2">.</span><span class="s1">addMotorListener</span><span class="s2">(</span><span class="s1">speedMotorListener</span><span class="s2">);</span>
+
+        <span class="s1">motor</span><span class="s2">.</span><span class="s1">start</span><span class="s2">();</span>
+        <span class="s1">motor</span><span class="s2">.</span><span class="s1">speedUp</span><span class="s2">(</span><span class="s5">0.5f</span><span class="s2">);</span>
+        <span class="s1">motor</span><span class="s2">.</span><span class="s1">stop</span><span class="s2">();</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

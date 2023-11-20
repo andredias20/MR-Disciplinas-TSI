@@ -1,4 +1,4 @@
-package observer.listenerOldStyle;
+package com.github.andredias20.observer.listenerOldStyle;
 
 public interface MotorListener
 {
