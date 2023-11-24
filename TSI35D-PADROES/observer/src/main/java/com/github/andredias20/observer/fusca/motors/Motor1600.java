@@ -3,7 +3,7 @@ package com.github.andredias20.observer.fusca.motors;
 import com.github.andredias20.observer.motor.Motor;
 import com.github.andredias20.observer.motor.MotorState;
 
-public class Motor1600 implements Motor
+class Motor1600 implements Motor
 {
 
 	@Override

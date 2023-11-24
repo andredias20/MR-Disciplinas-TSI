@@ -6,6 +6,9 @@ import com.github.andredias20.observer.motor.MotorState;
 class Motor1100 implements Motor
 {
 
+	public Motor1100() {
+	}
+
 	@Override
 	public MotorState getState()
 	{

@@ -4,7 +4,7 @@ import com.github.andredias20.observer.motor.AbstractMotor;
 import com.github.andredias20.observer.motor.MotorState.Status;
 import com.github.andredias20.observer.motor.SimpleMotorState;
 
-public class Motor1500 extends AbstractMotor
+class Motor1500 extends AbstractMotor
 {
 	//-------------------------------------------------
 	public Motor1500()
