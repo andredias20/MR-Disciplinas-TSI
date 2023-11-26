@@ -26,6 +26,34 @@ public class ObservableMotor implements Motor {
         return motor.isOff();
     }
 
+    @Override
+    public void slowDown(float percent) {
+        slowDownManager.fireBefore(new MotorEvent(motor, motor.getState()));
+        motor.slowDown(percent);
+        slowDownManager.fireAfter(new MotorEvent(motor, motor.getState()));
+    }
+
+    @Override
+    public void speedUp(float percent) {
+        speedUpManager.fireBefore(new MotorEvent(motor, motor.getState()));
+        motor.speedUp(percent);
+        speedUpManager.fireAfter(new MotorEvent(motor, motor.getState()));
+    }
+
+    @Override
+    public void start() {
+        startManager.fireBefore(new MotorEvent(motor, motor.getState()));
+        motor.start();
+        startManager.fireAfter(new MotorEvent(motor, motor.getState()));
+    }
+
+    @Override
+    public void stop() {
+        stopManager.fireBefore(new MotorEvent(motor, motor.getState()));
+        motor.stop();
+        stopManager.fireAfter(new MotorEvent(motor, motor.getState()));
+    }
+
     //Observer pattern
     private final MotorEventListenerManager startManager = new MotorEventListenerManager();
     private final MotorEventListenerManager stopManager = new MotorEventListenerManager();

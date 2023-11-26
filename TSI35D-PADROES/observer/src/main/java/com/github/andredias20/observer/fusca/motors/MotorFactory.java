@@ -15,12 +15,14 @@ public class MotorFactory {
 
     static public Motor create(MotorType type)
     {
-        return switch (type) {
-            case FUSCA_1100 -> new Motor1100();
-            case FUSCA_1200 -> new Motor1200();
-            case FUSCA_1300 -> new Motor1300();
-            case FUSCA_1500 -> new Motor1500();
-            case FUSCA_1600 -> new Motor1600();
-        };
+        switch(type)
+        {
+            case FUSCA_1100: return new Motor1100();
+            case FUSCA_1200: return new Motor1200();
+            case FUSCA_1300: return new Motor1300();
+            case FUSCA_1500: return new Motor1500();
+            case FUSCA_1600: return new Motor1600();
+        }
+        throw new RuntimeException("Unknow MotorType: "+ type);
     }
 }
