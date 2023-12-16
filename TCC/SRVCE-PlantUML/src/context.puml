@@ -1,14 +1,22 @@
 @startuml
-!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Context.puml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
 
 LAYOUT_LEFT_RIGHT()
 
-Person(ace, "Agente de Controle de Endemias", "O agente que irá realizar as vistorias a procura de iregularidades nas residencias.")
+Person(public, "População", "Cidadãos em suas casas.")
+Person(ace, "Agente de Controle de Endemias", "Agente da prefeitura que realiza visitas domiciliares.")
+Rel(ace, public, "Faz visitas domiciliares")
 
-System(srvce, "Aplicacao SRVCE", "Sistema de Registro de Visitas do Controle de Endemias")
+System_Boundary(srvce, "Aplicacao SRVCE"){
+    Container(cli, "App Cliente","Android - Kotlin")
+    Container(srv, "App Servidor","Java - Spring")
+    Rel(srv, cli, "Troca infromações")
+    Rel(cli, srv, "")
+}
 System_Ext(sus, "Data SUS", "Sistema que armazena dados de saude de todos as cidades e estados do país")
 
-Rel(ace, srvce, "Usa")
-Rel(srvce, sus, "Envia reports semanais")
+Rel(ace, cli, "Registra atendimentos ao publico")
+Rel(cli,ace , "Recebe trajetos do dia")
+Rel(srv, sus, "Envia reports semanais")
 
 @enduml

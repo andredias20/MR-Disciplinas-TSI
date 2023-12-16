@@ -5,7 +5,9 @@ LAYOUT_LEFT_RIGHT()
 
 title Bounded Context Map para SRVCE
 
-Person(ace, "Agente de Controle de Endemias", "O agente que irá realizar as vistorias a procura de iregularidades nas residencias.")
+Person(public, "População", "Cidadãos em suas casas.")
+Person(ace, "Agente de Controle de Endemias", "Agente da prefeitura que realiza visitas domiciliares.")
+Rel(ace, public, "Faz visitas domiciliares")
 
 System_Boundary(srvce, "Aplicacao SRVCE"){
     Container(aa, "Aplicativo Android", "Kotlin", "Fornece as funcionalidades de Registro de atendimento e disponibilização das rotas.")
@@ -14,13 +16,17 @@ System_Boundary(srvce, "Aplicacao SRVCE"){
     
     Container(db, "SGDB", "MongoDB", "Armazena os dados recebidos, e fornece os dados existentes por meio de consulta")
 
-    Rel(aa, api, "Envia e obtem dados", "JSON")
-    Rel(api, db, "Grava e Consulta", "JDBC")
+    Rel(aa, api, "Envia dados", "JSON")
+    Rel(api, aa, "Recebe dados", "JSON")
+    Rel(api, db, "Grava", "JDBC")
+    Rel(db, api, "Consulta", "JDBC")
 
 }
 System_Ext(sus, "Data SUS", "Recebe e armazena os dados.")
 
-Rel(ace, aa, "Usa")
+Rel(ace, aa, "Registra atendimentos ao publico")
+Rel(aa,ace , "Recebe trajetos do dia")
+
 Rel(api, sus, "Envia reports semanais", "JSON")
 
 @enduml
