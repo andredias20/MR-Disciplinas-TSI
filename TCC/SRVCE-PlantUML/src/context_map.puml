@@ -1,0 +1,33 @@
+@startuml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
+
+LAYOUT_LEFT_RIGHT()
+
+Person(public, "População", "Cidadãos em suas casas.")
+Person(ace, "Agente de Controle de Endemias", "Agente da prefeitura que realiza visitas domiciliares.")
+Person(adm, "Administração", "Agente da prefeitura analisa os dados coletados.")
+
+Boundary(syscontext,"SRVCE"){
+    System(srvce, "Aplicacao SRVCE", "Aplicação que armazena os registros de atendimentos do setor de endemias.")
+}
+System_Ext(sus, "Data SUS", "Sistema que armazena dados de saude de todos as cidades e estados do país")
+
+Rel(ace, srvce, "Usa")
+
+Rel(ace, public, "Visita")
+
+Rel(srvce, sus, "Envia reports semanais")
+Rel(adm, srvce , "Usa")
+
+' Rel(ace, cli, "Registra atendimentos ao publico")
+' Rel(cli,ace , "Recebe trajetos do dia")
+' Rel(srv, sus, "Envia reports semanais")
+' Rel(srv, adm, "Analisa dados coletados")
+
+' Rel(ace, srvce, "Registra atendimentos ao publico")
+' Rel(srvce,ace , "Recebe trajetos do dia")
+' Rel(srvce, sus, "Envia reports semanais")
+' Rel(srvce, adm, "Analisa dados coletados")
+
+
+@enduml

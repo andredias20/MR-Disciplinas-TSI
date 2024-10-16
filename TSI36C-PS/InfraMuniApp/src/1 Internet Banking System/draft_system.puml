@@ -1,0 +1,34 @@
+@startuml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Container.puml
+
+LAYOUT_LEFT_RIGHT()
+LAYOUT_WITH_LEGEND()
+
+
+Person(mun, "Munícipe", "Morador do municipio que deseja relatar algo.")
+Person(adm, "Administração", "Administração contratada pelo municipio para gerir as terceirizadas.")
+Person(ter, "Terceirizadas", "Contratadas pela gestão para atender as demandas relatadas no sistema.")
+
+System_Ext(es, "E-mail system", "The internal Microsoft Exchange e-mail system.")
+
+System_Boundary(ibs, "GServ") {
+    Container(wa, "Aplicação Web", "java and Spring MVC", "Entrega conteudo estático, funcionalidades de gerenciamento de serviços por meio da SPI e se comunica com o banco de dados.")
+    Container(db, "Banco de Dados", "Banco de dados Relacional", "Armazena os registros do sistema.")
+
+    Rel(wa, es, "Envia e-mails", "SMTP")
+    Rel(wa, db, "Lê e Escreve em", "JDBC")
+}
+
+Rel(mun, wa, "Usa", "HTTPS")
+Rel(adm, wa, "Usa", "HTTPS")
+Rel(ter, wa, "Usa", "HTTPS")
+
+
+Rel(es, mun, "Envia e-mails para")
+
+'Container(ma, "Mobile App", "Xamarin", "Provides a limited subset ot the internet banking functionality to customers via their mobile mobile device.")
+'Rel(ma, api, "Usa", "JSON/HTTPS")
+
+'Rel(pbc, ma, "Usa")
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Context.puml
+
+LAYOUT_WITH_LEGEND()
+LAYOUT_LEFT_RIGHT()
+
+Person(mnp, "Municipe", "Aquele que reside na cidade.")
+Person(adm, "Administração", "Monitoram e coordenam as ações.")
+Person(ter, "Terceiros", "Recebem demandas e as executam, atualizando conforme status.")
+
+
+System(webapp, "Aplicação - SerReg", "Aplicação de registro de serviços da prefeitura.")
+System_Ext(sis_ter, "Sistema de Envio de Email", "Envia e-mails para destinatários diversos.")
+
+
+Rel(mnp, webapp, "Usa")
+Rel(adm, webapp, "Usa")
+Rel(ter, webapp, "Usa")
+
+Rel(webapp, sis_ter, "Envia E-mail")
+
+Rel(sis_ter, mnp, "Envia")
+
+@enduml
